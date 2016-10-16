@@ -21,4 +21,19 @@ export class TaskService {
     getTasksTodo(): Promise<TaskItem[]> {
         return Promise.resolve(COLLECTION_TODO);
     }
+
+
+    setTaskDone(task:TaskItem):void{
+        //ajouter la tache aux archives
+        task.id =  COLLECTION_TODO_ARCHIVE.length+1;
+        COLLECTION_TODO_ARCHIVE.push(task);
+
+        //supprimer des taches a faire
+        for(let i=0; i<COLLECTION_TODO.length; i++){
+            if(COLLECTION_TODO[i].id == task.id){
+                COLLECTION_TODO.splice(i, 1);
+                break;
+            }
+        }
+    }
 };
