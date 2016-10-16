@@ -1,0 +1,4 @@
+<p>{{item.content}}<p>
+<button *ngIf="status==0" (click)="setTaskDone(item)">Effectuée</button>
+<button *ngIf="status==1" (click)="deleteTask(item)">Supprimer</button>
+<hr>

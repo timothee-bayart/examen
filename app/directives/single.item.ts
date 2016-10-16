@@ -8,12 +8,7 @@ import { TaskService } from "../services/tasks.service";
 // Configurer la directive
 @Component({
     selector: 'single-item',
-    template: `
-        <p>{{item.content}}<p>
-        <button *ngIf="status==0" (click)="setTaskDone(item)">Effectuée</button>
-        <button *ngIf="status==1" (click)="deleteTask(item)">Supprimer</button>
-        <hr>
-    `
+    templateUrl: 'app/partials/directives/single.item.dir.html',
 })
 
 // Exporter la class de la directive

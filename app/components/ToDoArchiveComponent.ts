@@ -8,13 +8,7 @@ import { TaskItem } from "../models/task.item";
 @Component({
     selector: 'todo-archive-page',
     styles: [`h1{font-size:1.5rem`],
-    template: `
-        <h2>Archives</h2><br />
-        <section *ngFor="let item of collection">
-            <!-- Ajouter la directive en lui envoyant une variable -->
-            <single-item [item]="item" [status]="1"></single-item>
-        <section>
-    `,
+    templateUrl: 'app/partials/components/todo.archive.component.html',
     providers:[TaskService]
 })
 

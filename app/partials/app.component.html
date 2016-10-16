@@ -1,0 +1,10 @@
+<nav>
+    <a routerLink="/toDo">Tâches à faire</a>
+    <a routerLink="/toDoArchive">Archives</a>
+</nav>
+<router-outlet></router-outlet>
+<br /><br />
+<footer *ngIf="collectionTodo && collectionArchive">
+    {{collectionTodo.length}} tâches à réaliser<br />
+    {{collectionArchive.length}} tâches archivées
+</footer>

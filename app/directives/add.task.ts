@@ -8,10 +8,7 @@ import { TaskService } from "../services/tasks.service";
 // Configurer la directive
 @Component({
     selector: 'add-task',
-    template: `
-        <p>Ajouter une tâche à faire : </p>
-        <input type="text" [(ngModel)]="newTask.content" /> <button (click)="addNewTask(newTask)">Ajouter</button>
-    `
+    templateUrl: 'app/partials/directives/add.task.dir.html',
 })
 
 // Exporter la class de la directive
