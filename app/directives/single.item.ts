@@ -11,6 +11,7 @@ import { TaskService } from "../services/tasks.service";
     template: `
         <p>{{item.content}}<p>
         <button *ngIf="status==0" (click)="setTaskDone(item)">Effectuée</button>
+        <button *ngIf="status==1" (click)="deleteTask(item)">Supprimer</button>
         <hr>
     `
 })
@@ -28,5 +29,9 @@ export class SingleItem{
 
     setTaskDone(event: Event){
         this.taskService.setTaskDone(this.item); //on appelle la fonction du service
+    }
+
+    deleteTask(event: Event){
+        this.taskService.deleteTask(this.item); //on appelle la fonction du service
     }
 }

@@ -13,10 +13,14 @@ const COLLECTION_TODO_ARCHIVE:any[] = [
     new TaskItem({id:2, content:"Faire les courses", status:1})
 ];
 
+
 //on rend disponible le service
 @Injectable()
 //exporte la classe
 export class TaskService {
+    
+    private idToDo:number=4;
+    private idToDoArchive:number=3;
 
     getTasksTodo(): Promise<TaskItem[]> {
         return Promise.resolve(COLLECTION_TODO);
@@ -29,19 +33,33 @@ export class TaskService {
 
     addNewTask(task:TaskItem):void{
         // Ajout d'un nouvel item dans la collection de données
-        task.id =  COLLECTION_TODO.length+1; //on génère l'id
+        // task.id =  COLLECTION_TODO.length+1; on génère l'id => mauvaise méthode
+        this.idToDo++; //on crée un autoincrement...
+        task.id = this.idToDo;
         COLLECTION_TODO.push(task); //on ajoute
     }
 
     setTaskDone(task:TaskItem):void{
         //ajouter la tache aux archives
-        task.id =  COLLECTION_TODO_ARCHIVE.length+1;
+        // task.id =  COLLECTION_TODO_ARCHIVE.length+1; on génère l'id => mauvaise méthode
+        this.idToDoArchive++; //on crée un autoincrement...
+        task.id = this.idToDoArchive;
         COLLECTION_TODO_ARCHIVE.push(task);
 
         //supprimer des taches a faire
         for(let i=0; i<COLLECTION_TODO.length; i++){
             if(COLLECTION_TODO[i].id == task.id){
                 COLLECTION_TODO.splice(i, 1);
+                break;
+            }
+        }
+    }
+
+    deleteTask(task:TaskItem):void{
+        //supprimer des archives a faire
+        for(let i=0; i<COLLECTION_TODO_ARCHIVE.length; i++){
+            if(COLLECTION_TODO_ARCHIVE[i].id == task.id){
+                COLLECTION_TODO_ARCHIVE.splice(i, 1);
                 break;
             }
         }
