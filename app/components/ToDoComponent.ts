@@ -10,6 +10,12 @@ import { TaskItem } from "../models/task.item";
     styles: [`h1{font-size:1.5rem`],
     template: `
         <h2>Tâches à faire :</h2><br />
+
+        <section>
+            <add-task></add-task>
+        </section>
+        <br /><br />
+
         <section *ngFor="let item of collection">
             <!-- Ajouter la directive en lui envoyant une variable -->
             <single-item [item]="item"></single-item>

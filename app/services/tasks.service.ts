@@ -23,6 +23,12 @@ export class TaskService {
     }
 
 
+    addNewTask(task:TaskItem):void{
+        // Ajout d'un nouvel item dans la collection de données
+        task.id =  COLLECTION_TODO.length+1; //on génère l'id
+        COLLECTION_TODO.push(task); //on ajoute
+    }
+
     setTaskDone(task:TaskItem):void{
         //ajouter la tache aux archives
         task.id =  COLLECTION_TODO_ARCHIVE.length+1;
