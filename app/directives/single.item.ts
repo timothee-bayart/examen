@@ -10,7 +10,7 @@ import { TaskService } from "../services/tasks.service";
     selector: 'single-item',
     template: `
         <p>{{item.content}}<p>
-        <button (click)="setTaskDone(item)">Effectuée</button>
+        <button *ngIf="status==0" (click)="setTaskDone(item)">Effectuée</button>
         <hr>
     `
 })
@@ -24,6 +24,7 @@ export class SingleItem{
 
     // Appeler la fonction @Input() pour charger une variable d'un composant parent
     @Input() item: TaskItem;
+    @Input() status: number;
 
     setTaskDone(event: Event){
         this.taskService.setTaskDone(this.item); //on appelle la fonction du service

@@ -22,6 +22,10 @@ export class TaskService {
         return Promise.resolve(COLLECTION_TODO);
     }
 
+    getTasksTodoArchive(): Promise<TaskItem[]> {
+        return Promise.resolve(COLLECTION_TODO_ARCHIVE);
+    }
+
 
     addNewTask(task:TaskItem):void{
         // Ajout d'un nouvel item dans la collection de données

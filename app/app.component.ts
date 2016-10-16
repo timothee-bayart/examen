@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
             <a routerLink="/toDo">Tâches à faire</a>
             <a routerLink="/toDoArchive">Archives</a>
         </nav>
-        <todo-page></todo-page>
+        <router-outlet></router-outlet>
     `
 })
 export class AppComponent { }
