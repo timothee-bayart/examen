@@ -9,7 +9,7 @@ import { TaskItem } from "../models/task.item";
     selector: 'todo-page',
     styles: [`h1{font-size:1.5rem`],
     template: `
-        <h2>Tâches à faire :</h2><br />
+        <h2>Tâches à faire</h2><br />
 
         <section>
             <add-task></add-task>

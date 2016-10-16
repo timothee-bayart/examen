@@ -9,7 +9,7 @@ import { TaskItem } from "../models/task.item";
     selector: 'todo-archive-page',
     styles: [`h1{font-size:1.5rem`],
     template: `
-        <h2>Tâches archivées :</h2><br />
+        <h2>Archives</h2><br />
         <section *ngFor="let item of collection">
             <!-- Ajouter la directive en lui envoyant une variable -->
             <single-item [item]="item" [status]="1"></single-item>
